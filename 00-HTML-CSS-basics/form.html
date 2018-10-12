@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <META CHARSET="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Facundo Lastra">
+    <meta name="description" content="exercise 1-vi of Basics of HTML and CSS">
+    <title>HTML Form </title>
+</head>
+
+<body>
+    <main>
+        <form action="">
+            <table>
+                <tr>
+                    <td>
+                        <p> First Name: </p>
+                    </td>
+                    <td><input type="text" name="firstname" placeholder="First Name" required></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p> Last Name: </p>
+                    </td>
+                    <td><input type="text" name="lastname" placeholder="Last Name" required></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p> E-mail: </p>
+                    </td>
+                    <td><input type="email" name="email" placeholder="e-mail" required></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p> Birthday: </p>
+                    </td>
+                    <td><input type="date" name="bday" min="1900-01-01" required></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p> Favorite Sport: </p>
+                    </td>
+                    <td>
+                        <select name="favsport" required>
+                            <option value="" disabled selected hidden>Select one</option>
+                            <option value="tennis">Tennis</option>
+                            <option value="football">Football</option>
+                            <option value="rugby">Rugby</option>
+                            <option value="basketball">Basketball</option>
+                            <option value="swimming">Swimming</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p> About me: </p>
+                    </td>
+                    <td>
+                        <textarea name="message" rows="8" cols="25" placeholder="Enter a small description of yourself"
+                            required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Submit"></td>
+                    <td><input type="reset" value="Reset"></td>
+                </tr>
+            </table>
+        </form>
+    </main>
+</body>
+
+</html>
