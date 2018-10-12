@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html{
+    font-family: 'Open Sans',serif;
+    font-size: 14px;
+ }
+
+header, footer {
+    background-color: #9AD2CB;
+    text-align: center;
+}
+nav{
+    background-color: #D6F7A3;
+}
+aside{
+    background-color: #F4E8C1;
+}
