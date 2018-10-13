@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-html{
-    font-family: 'Open Sans',serif;
-    font-size: 14px;
- }
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-size: 14px ;
+  }
 
 header, footer {
     background-color: #9AD2CB;
@@ -14,4 +13,23 @@ nav{
 }
 aside{
     background-color: #F4E8C1;
+}
+.header {
+    font-size: 46px; 
+}
+.footer, .sidebar {
+    font-size: 10px;
+}
+.content {
+    font-size: 14px; 
+}
+.navigation {
+    font-size: 12px;
+}
+[class$='r']{
+	background-color: magenta !important;
+}
+
+[class*='a']{
+	background-color: blue;
 }
