@@ -1,0 +1,24 @@
+
+.responsive {
+    width: 100%;
+    max-width: 382px;
+    height: auto;
+}
+.margin {
+    margin-top: 3%;
+}
+
+.column.third span {
+    position: absolute;
+    opacity: 0;
+    background: transparent;
+    height: 30%;
+}
+.description{
+    text-align: center;
+    color: white;
+}
+.column.third span:hover {
+    opacity: 1;
+}
+
