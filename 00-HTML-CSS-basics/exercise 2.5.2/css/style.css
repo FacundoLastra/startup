@@ -13,12 +13,17 @@
     opacity: 0;
     background: transparent;
     height: 30%;
+    display: block;
 }
 .description{
     text-align: center;
-    color: white;
+    color: rgb(255, 0, 0);
 }
 .column.third span:hover {
     opacity: 1;
+}
+.flex {
+    display: flex;
+    align-items: stretch;
 }
 
