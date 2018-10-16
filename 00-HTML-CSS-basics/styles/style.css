@@ -1,0 +1,68 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-size: 0px;
+    box-sizing: border-box;
+  }
+
+header, footer {
+    background-color: #9AD2CB;
+    text-align: center;
+}
+nav{
+    background-color: #D6F7A3;      
+}
+aside{
+    background-color: #F4E8C1;
+    
+}
+.header {
+    font-size: 46px; 
+}
+.footer, .sidebar {
+    font-size: 10px;
+}
+.content {
+    display: inline-block;
+    width: 60%;
+    text-align: center;
+    background-color: #666666; 
+}
+.content header {
+    font-size: 14px;
+    padding: 2%;
+}
+.content article {
+    font-size: 14px; 
+    padding: 10%;
+}
+.content footer {
+    font-size: 14px;
+    padding: 2%;
+}
+.navigation {
+    font-size: 12px;
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    color: white;
+}
+.sidebar {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+}
+.flex {
+    display: flex;
+    align-items: stretch;
+}
+.footer {
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;    
+}
+[class$='r'] {
+	background-color: magenta !important;
+}
+
+[class*='a'] {
+	background-color: blue;
+}

@@ -1,0 +1,89 @@
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.container {
+    margin: 0 auto;
+    max-width: 65rem;
+    width: 95%;
+}
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+} 
+.responsive {
+    width: 100%;
+
+}
+.margin {
+    margin-top: 3%;
+}
+.imgdescriptionbox {
+    position: absolute;
+    opacity: 0;
+    background-color: #2d2c2c80;
+    padding: 2%;
+    height: 25%;
+    transition: .5s ease;
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+    width: 16rem;
+}
+.description{
+    text-align: center;
+    color: rgb(255, 0, 0);
+}
+.imgdescriptionbox:hover {
+    opacity: 1;
+}
+@media (min-width: 40rem) {
+    .column {
+        float: left;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+
+    .column.full { width: 100%; }
+    .column.two-thirds { width: 66.7%; }
+    .column.third { width: 33.3%; }
+} 
+
+/* Small screens (default) */
+html { font-size: 100%; }
+
+/* Medium screens (640px) */
+@media  (min-width: 40rem) and (max-width:65rem) {
+  html { font-size: 112%; }
+  .imgdescriptionbox {
+      width: 10rem;
+      height: 14%;
+      margin-left: 1.6rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Large screens (1024px) */
+@media (min-width: 64rem) {
+  html { font-size: 120%; }
+  .imgdescriptionbox{
+      width: 100%;
+    max-width: 18rem;
+    margin-left: 1.6rem;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (min-width:65rem) and (max-width:76.80rem) {
+    .imgdescriptionbox {
+        width: 14rem;
+    }
+
+}
