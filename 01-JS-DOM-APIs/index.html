@@ -8,6 +8,7 @@
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <script src="js/main.js"></script>
     <title> Topic 1 </title>
 </head>
 
@@ -60,11 +61,10 @@
             </section>
             <section>
                 <div class="row clearfix">
-                        <div class="column third">
-                                <button onclick="alertUser()">Click Me</button>
-                            </div>
                     <div class="column third">
-                        <button onclick="getReponse()">Click Me</button>
+                        <h2>Joke Area</h2>
+                        <button onclick="getJokeforApi()">view random joke</button>
+                        <p id="joke"></p>
                     </div>
                 </div>
             </section>
@@ -79,7 +79,6 @@
             </section>
         </div>
     </main>
-    <script src="js/main.js"></script>
 </body>
 
 </html>
