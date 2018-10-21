@@ -8,7 +8,6 @@
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <script src="js/main.js"></script>
     <title> Topic 1 </title>
 </head>
 
@@ -66,6 +65,24 @@
                         <button onclick="getJokeforApi()">view random joke</button>
                         <p id="joke"></p>
                     </div>
+                    <div class="column third">
+                        <h2>Genereted Table</h2>
+                        <div id="table" class="generatedTable">
+                        
+                        </div>                                                
+                    </div>
+                    <div class="column flow-opposite">
+                            <div id="hiddenList" hidden>
+                                <h2>Repositorys List</h2>
+                                <input type="text" name="search" id="search" placeholder="Enter value to search">
+                                <ul id="repositorys" class="repositorys"></ul>
+                            </div>
+                    </div>
+                    <div class="column third">
+                        <p>Please Enter language to search repositories, the default is JavaScript</p>
+                        <input type="text" id="languageSearch" placeholder="Enter language to search repositories">
+                        <button onclick="newReposSearch()">view random joke</button>
+                    </div>
                 </div>
             </section>
             <section id="hidden" hidden>
@@ -79,6 +96,7 @@
             </section>
         </div>
     </main>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
