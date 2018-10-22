@@ -1,0 +1,24 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.column > article {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+.hidden {
+    display: none;
+}
+.error {
+    color: red;
+}
+.generatedTable td, th {
+    border-spacing: 0.5rem;
+    border: 1px solid #999;
+    padding: 0.5rem
+}
+.generatedTable th{
+    background-color: #39CCCC;
+}
