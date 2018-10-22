@@ -145,4 +145,4 @@ function newReposSearch(){ /// get repos with specific param
 }
 
 
-getRepositorys();
+getRepositorys("JavaScript");
