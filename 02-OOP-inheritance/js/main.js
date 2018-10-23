@@ -6,19 +6,55 @@ class Actor {
 }
 
 class EventEmitter {
-    constructor(){}
+    constructor(){
+        this.events = {}; /// for events diccionary
+    }
 
     on(eventName, callback){
-        document.addEventListener(eventName, callback);
+        if(typeof callback === "function" && typeof eventName === "string" && eventName != "") {
+            if( !this.events[eventName] ) { /// if not exist the key
+                this.events[eventName] = []; /// i created
+            }
+            this.events[eventName].push(callback); /// and push the function
+        }else{
+            console.log("sorry invalid data");
+        }
     }
     emit(eventName){
-        const event = new Event(eventName);
-        document.dispatchEvent(event);
+        const event = this.events[eventName]; ///searching the event in the diccionary
+        if(event) {/// if found
+            event.forEach(fn => {
+                fn.call(null,eventName);                
+            });
+        
+        }else{
+            console.log("event not found");
+        }
+
     }
     off(eventName, callback){
-        document.removeEventListener(eventName,callback);
+        const fn = this.events[eventName];
+        if(fn){
+            let pos = fn.indexOf(callback);
+            if(pos > -1){
+                fn.splice(pos,1);
+            }else{
+                console.log("function not found");
+            }
+            this.events[eventName] = fn;
+        }else{
+            console.log("eventName not found");
+        }
     }
     
+}
+class Logger{
+    constructor(){}
+
+    log(info){
+        console.log("The " + info + " event has been emmitted. ")
+    };
+
 }
 class Movie extends EventEmitter {
     constructor(title, year, duration){
@@ -26,30 +62,44 @@ class Movie extends EventEmitter {
         this.title = title;
         this.year = year;
         this.duration = duration;
+        this.actors = [];
+        const logger = new Logger();
+        this.on("playFilm", logger.log);
+        this.on("pauseFilm", logger.log);
+        this.on("resumeFilm", logger.log);
     }
+   addCast(actor){
+        if(actor instanceof Array){
+            this.actors = actors.concat(actor);
+        }else if(actor){
+            this.actors.push(actor);                
+        }
+    }    
+
     toString(){
         return "Film Name: "+ this.title + " Year: " + this.year + " Duration: " + this.duration;
     }
     play(){
-        this.on("playFilm", () => {
-            console.log("You are playing the film");
-        })
         this.emit("playFilm");        
     }
     pause(){
-        this.on("pauseFilm", () => {
-            console.log("You are paused the film");
-        })
         this.emit("pauseFilm");
     }
     resume(){
-        this.on("resumeFilm", ()=> {
-            console.log("you are resumed the film");
-        })
         this.emit("resumeFilm");
     }
 
 }
 
+const social = {
+    shared: function(friendName){
+        console.log( friendName + " share " + this.title);
+    },
+    likes: function(friendName){
+        console.log( friendName + " likes " + this.title);
+    }    
+}
 
 const movie = new Movie("Star Wars 4", 1970, 120);
+
+Object.assign(movie,social); /// adding the social methods to movie instanc
