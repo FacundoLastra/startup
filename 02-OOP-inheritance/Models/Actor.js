@@ -3,4 +3,4 @@ export default class Actor {
         this.name = name;
         this.age = age;
     }
-}
+};
