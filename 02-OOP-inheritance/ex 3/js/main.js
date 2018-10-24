@@ -3,8 +3,7 @@ class Actor {
         this.name = name;
         this.age = age;
     }
-}
-
+};
 class EventEmitter {
     constructor(){
         this.events = {}; /// for events diccionary
@@ -24,7 +23,7 @@ class EventEmitter {
         const event = this.events[eventName]; ///searching the event in the diccionary
         if(event) {/// if found
             event.forEach(fn => {
-                fn.call(null);                
+                fn.call(null,eventName);                
             });
         
         }else{
@@ -48,6 +47,13 @@ class EventEmitter {
     }
 
 }
+class Logger{
+    constructor(){}
+
+    log(info){
+        console.log("The " + info + " event has been emmitted. ")
+    };
+};
 
 class Movie extends EventEmitter{
     constructor(title, year, duration){
@@ -55,16 +61,20 @@ class Movie extends EventEmitter{
         this.title = title;
         this.year = year;
         this.duration = duration;
-        this.on("playFilm", () =>{
-            console.log("You are watching the movie " + this.toString());
-        });
-        this.on("pauseFilm", () => {
-            console.log("You are paused the movie " + this.toString());
-        });
-        this.on("resumeFilm", () => {
-            console.log("You are resume the movie " + this.toString());
-        });
+        this.actors = [];
+        const logger = new Logger();
+        this.on("playFilm", logger.log);
+        this.on("pauseFilm", logger.log);
+        this.on("resumeFilm", logger.log);
     }
+   addCast(actor){
+        if(actor instanceof Array){
+            this.actors = this.actors.concat(actor);
+        }else if(actor){
+            this.actors.push(actor);                
+        }
+    }    
+
     toString(){
         return "Film Name: "+ this.title + " Year: " + this.year + " Duration: " + this.duration;
     }
@@ -79,12 +89,16 @@ class Movie extends EventEmitter{
     }
 };
 
-
 const movie = new Movie("Star Wars 4", 1970, 120);
-const actor = new Actor("Arnold Schwarzenegger", 71);
+const oneActor = new Actor("Arnold Schwarzenegger", 71);
+const arrayOfActors = [new Actor("Kit Harington", 31),new Actor("Adam Sandler", 52),new Actor("Maisie Williams", 21)];
+movie.addCast(oneActor);
+movie.addCast(arrayOfActors);
 movie.play();
 movie.pause();
 movie.resume();
 console.log(movie);
-console.log(actor);
+
+
+
 
