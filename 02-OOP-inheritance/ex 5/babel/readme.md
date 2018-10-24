@@ -15,6 +15,7 @@ the converted data is in the build folder
 * Type 
 ```
 npm install
+npm install -D babel-preset-env
 ```
 * to transform all the files within the src folder from ECMA 6 to ECMA 5 type
 ```
