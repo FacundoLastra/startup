@@ -15,7 +15,7 @@ export default class Movie extends EventEmitter{
     }
    addCast(actor){
         if(actor instanceof Array){
-            this.actors = actors.concat(actor);
+            this.actors = this.actors.concat(actor);
         }else if(actor){
             this.actors.push(actor);                
         }
