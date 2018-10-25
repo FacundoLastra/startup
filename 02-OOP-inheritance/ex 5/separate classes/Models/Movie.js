@@ -1,5 +1,4 @@
 const EventEmitter = require('./eventEmitter');
-const Logger = require('./logger');
 
 class Movie extends EventEmitter{
     constructor(title, year, duration){
@@ -8,10 +7,6 @@ class Movie extends EventEmitter{
         this.year = year;
         this.duration = duration;
         this.actors = [];
-        const logger = new Logger();
-        this.on("playFilm", logger.log);
-        this.on("pauseFilm", logger.log);
-        this.on("resumeFilm", logger.log);
     }
    addCast(actor){
         if(actor instanceof Array){

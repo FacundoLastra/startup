@@ -96,10 +96,6 @@ var Movie = function (_EventEmitter) {
         _this.year = year;
         _this.duration = duration;
         _this.actors = [];
-        var logger = new Logger();
-        _this.on("playFilm", logger.log);
-        _this.on("pauseFilm", logger.log);
-        _this.on("resumeFilm", logger.log);
         return _this;
     }
 
@@ -149,6 +145,11 @@ var social = {
 var movie = new Movie("Star Wars 4", 1970, 120);
 
 Object.assign(movie, social); /// adding the social methods to movie instanc
+
+var logger = new Logger();
+movie.on("playFilm", logger.log);
+movie.on("pauseFilm", logger.log);
+movie.on("resumeFilm", logger.log);
 
 var actors = [];
 

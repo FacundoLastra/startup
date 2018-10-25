@@ -61,10 +61,6 @@ class Movie extends EventEmitter{
         this.year = year;
         this.duration = duration;
         this.actors = [];
-        const logger = new Logger();
-        this.on("playFilm", logger.log);
-        this.on("pauseFilm", logger.log);
-        this.on("resumeFilm", logger.log);
     }
    addCast(actor){
         if(actor instanceof Array){
@@ -99,6 +95,11 @@ const social = {
 const movie = new Movie("Star Wars 4", 1970, 120);
 
 Object.assign(movie,social); /// adding the social methods to movie instanc
+
+const logger = new Logger();
+movie.on("playFilm", logger.log);
+movie.on("pauseFilm", logger.log);
+movie.on("resumeFilm", logger.log);
 
 let actors = [];
 
