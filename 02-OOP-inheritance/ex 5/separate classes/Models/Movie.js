@@ -1,7 +1,7 @@
-import EventEmitter from "./EventEmitter";
-import Logger from "./Logger";
+const EventEmitter = require('./eventEmitter');
+const Logger = require('./logger');
 
-export default class Movie extends EventEmitter{
+class Movie extends EventEmitter{
     constructor(title, year, duration){
         super();
         this.title = title;
@@ -19,8 +19,7 @@ export default class Movie extends EventEmitter{
         }else if(actor){
             this.actors.push(actor);                
         }
-    }    
-
+    } 
     toString(){
         return "Film Name: "+ this.title + " Year: " + this.year + " Duration: " + this.duration;
     }
@@ -33,4 +32,8 @@ export default class Movie extends EventEmitter{
     resume(){
         this.emit("resumeFilm");
     }
-};
+}
+
+
+ module.exports = Movie;
+

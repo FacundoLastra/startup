@@ -1,16 +1,24 @@
-import Actor from "./Models/Actor";
-import social from "./Models/social";
-import Movie from "./Models/Movie";
+
+const Movie = require('./Models/movie');
+const social = require('./Models/social');
+const Actor = require('./Models/actor');
 
 const movie = new Movie("Star Wars 4", 1970, 120);
+
 Object.assign(movie,social); /// adding the social methods to movie instanc
-const oneActor = new Actor("Arnold Schwarzenegger", 71);
-const arrayOfActors = [new Actor("Kit Harington", 31),new Actor("Adam Sandler", 52),new Actor("Maisie Williams", 21)];
-movie.addCast(oneActor);
-movie.addCast(arrayOfActors);
+
+let actors = [];
+
+actors.push(new Actor("jose",22));
+actors.push(new Actor("Carlos",64));
+
+movie.addCast(actors);
+
+Object.assign(movie,social); /// adding the social methods to movie instanc
+console.log(movie);
+
+movie.likes("facundo");
+movie.shared("gerard");
 movie.play();
 movie.pause();
 movie.resume();
-movie.share("Facundo Lastra");
-movie.likes("Javier Mascherano");
-console.log(movie);
