@@ -1,0 +1,168 @@
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Actor = function Actor(name, age) {
+    _classCallCheck(this, Actor);
+
+    this.name = name;
+    this.age = age;
+};
+
+var EventEmitter = function () {
+    function EventEmitter() {
+        _classCallCheck(this, EventEmitter);
+
+        this.events = {}; /// for events diccionary
+    }
+
+    _createClass(EventEmitter, [{
+        key: "on",
+        value: function on(eventName, callback) {
+            if (typeof callback === "function" && typeof eventName === "string" && eventName != "") {
+                if (!this.events[eventName]) {
+                    /// if not exist the key
+                    this.events[eventName] = []; /// i created
+                }
+                this.events[eventName].push(callback); /// and push the function
+            } else {
+                console.log("sorry invalid data");
+            }
+        }
+    }, {
+        key: "emit",
+        value: function emit(eventName) {
+            var event = this.events[eventName]; ///searching the event in the diccionary
+            if (event) {
+                /// if found
+                event.forEach(function (fn) {
+                    fn.call(null, eventName);
+                });
+            } else {
+                console.log("event not found");
+            }
+        }
+    }, {
+        key: "off",
+        value: function off(eventName, callback) {
+            var fn = this.events[eventName];
+            if (fn) {
+                var pos = fn.indexOf(callback);
+                if (pos > -1) {
+                    fn.splice(pos, 1);
+                } else {
+                    console.log("function not found");
+                }
+                this.events[eventName] = fn;
+            } else {
+                console.log("eventName not found");
+            }
+        }
+    }]);
+
+    return EventEmitter;
+}();
+
+var Logger = function () {
+    function Logger() {
+        _classCallCheck(this, Logger);
+    }
+
+    _createClass(Logger, [{
+        key: "log",
+        value: function log(info) {
+            console.log("The " + info + " event has been emmitted. ");
+        }
+    }]);
+
+    return Logger;
+}();
+
+var Movie = function (_EventEmitter) {
+    _inherits(Movie, _EventEmitter);
+
+    function Movie(title, year, duration) {
+        _classCallCheck(this, Movie);
+
+        var _this = _possibleConstructorReturn(this, (Movie.__proto__ || Object.getPrototypeOf(Movie)).call(this));
+
+        _this.title = title;
+        _this.year = year;
+        _this.duration = duration;
+        _this.actors = [];
+        return _this;
+    }
+
+    _createClass(Movie, [{
+        key: "addCast",
+        value: function addCast(actor) {
+            if (actor instanceof Array) {
+                this.actors = this.actors.concat(actor);
+            } else if (actor) {
+                this.actors.push(actor);
+            }
+        }
+    }, {
+        key: "toString",
+        value: function toString() {
+            return "Film Name: " + this.title + " Year: " + this.year + " Duration: " + this.duration;
+        }
+    }, {
+        key: "play",
+        value: function play() {
+            this.emit("playFilm");
+        }
+    }, {
+        key: "pause",
+        value: function pause() {
+            this.emit("pauseFilm");
+        }
+    }, {
+        key: "resume",
+        value: function resume() {
+            this.emit("resumeFilm");
+        }
+    }]);
+
+    return Movie;
+}(EventEmitter);
+
+var social = {
+    shared: function shared(friendName) {
+        console.log(friendName + " share " + this.title);
+    },
+    likes: function likes(friendName) {
+        console.log(friendName + " likes " + this.title);
+    }
+};
+
+var movie = new Movie("Star Wars 4", 1970, 120);
+
+Object.assign(movie, social); /// adding the social methods to movie instanc
+
+var logger = new Logger();
+movie.on("playFilm", logger.log);
+movie.on("pauseFilm", logger.log);
+movie.on("resumeFilm", logger.log);
+
+var actors = [];
+
+actors.push(new Actor("jose", 22));
+actors.push(new Actor("Carlos", 64));
+
+movie.addCast(actors);
+
+Object.assign(movie, social); /// adding the social methods to movie instanc
+console.log(movie);
+
+movie.likes("facundo");
+movie.shared("gerard");
+movie.play();
+movie.pause();
+movie.resume();
