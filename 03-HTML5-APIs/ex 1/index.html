@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <META CHARSET="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Facundo Lastra">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <title> Topic 3, ex 1 </title>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <!-- columns should be the immediate child of a .row -->
+            <header>
+                <div class="row clearfix">
+                    <div class="column full">
+                        <h1>Topic 3 Storages</h1>
+                    </div>
+                </div>
+            </header>
+            <!-- just use a number and class 'column' or 'columns' -->
+            <section>
+                <div class="row clearfix">
+                    <div class="column half">
+                        <h2>Please, enter data</h2>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="column full">
+                        <label for="exampleMessage">Message</label>
+                        <textarea class="fullWidth" placeholder="Enter data..." id="textarea"></textarea>
+                        <button class="button primary" onclick="saveData()">Save in LocalStorage And IndexDB</button>
+                        <button class="button primary" onclick="clearAllStorageData()">Clear all Storage Data
+                            (LocalStorage and IndexDB)</button>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="row clearfix">
+                    <div class="column half">
+                        <h4>Data in LocalStorage</h4>
+                        <ul id="localStorageData"></ul>
+                    </div>
+                    <div class="column half">
+                        <h4>IndexDB Data</h4>
+                        <ul id="indexDbData"></ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
