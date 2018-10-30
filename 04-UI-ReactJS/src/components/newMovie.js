@@ -24,10 +24,12 @@ export default class NewMovie extends Component {
     }
     render() {
         const movie = this.props.movie;
+        const isEdit = this.props.editMode;
+        let message = isEdit ? "Please edit the Movie" : "Enter a new Movie";        
 
         return (
             <form onSubmit={this.handleChangeSubmit}>
-                <legend>Enter a new Movie</legend>
+                <legend>{message}</legend>
                 <label htmlFor="">
                     Name of the Film:
                     <input value={movie.name} onChange={this.handleChangeName} type="text" placeholder="Enter the name of the movie" />

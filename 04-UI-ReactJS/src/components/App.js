@@ -17,13 +17,17 @@ function deleteElementByID(array,id){
   if(Array.isArray(array) && typeof id === "number"){
       return array.filter(element => element.id !== id)
   }
-
+}
+function getElementById(array,id){
+  if(Array.isArray(array)){
+    return array.find((element) => element.id === id)
+  }
 }
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = { movies: [], movie:new Movie("",0,0,0)}
+    this.state = { movies: [], movie:new Movie("",0,0,0), editMode: false}
     ///createMovieEvents
     this.handleOnNewMovieSend = this.handleOnNewMovieSend.bind(this);
     this.handleChangeName = this.handleChangeName.bind(this);
@@ -32,9 +36,10 @@ class App extends Component {
     ///showMovies
     this.handleOnDeleteMovie = this.handleOnDeleteMovie.bind(this);
     this.handleOnEditMovie = this.handleOnEditMovie.bind(this);
+    this.handleOnEditComplete = this.handleOnEditComplete.bind(this)
   }
 
-  handleOnNewMovieSend(event){
+  handleOnNewMovieSend(){
     this.setState( (stateBefore)=>{
       stateBefore.movies.push(stateBefore.movie)
       const newMovie = new Movie("",0,0,getLastValidId(stateBefore.movies))
@@ -66,23 +71,46 @@ handleOnDeleteMovie(id) {
   })
 }
 handleOnEditMovie(id) {
-  console.log("not implemented yet "+ id);
+  this.setState((stateBefore) => {
+    const movieToEdit = getElementById(stateBefore.movies,id);
+    return {movie: movieToEdit , editMode: true}
+  })
 }
-
+handleOnEditComplete(){
+  this.setState((stateBefore) => {
+    const newMovie = new Movie("",0,0,getLastValidId(stateBefore.movies))
+    return {movie: newMovie, editMode: false }
+  })
+}
   render() {
     const movie = this.state.movie;
+    const isEditMode = this.state.editMode;
+    let form;
+    if (!isEditMode) {
+      form = <NewMovie  
+                movie={movie}
+                onNameChange={this.handleChangeName}
+                onDurationChange={this.handleChangeDuration}
+                onYearChange={this.handleChangeYear}
+                onSubmit={this.handleOnNewMovieSend}
+                editMode={false}
+              />      
+    }else {
+      form = <NewMovie  /// I reuse newMovie to edit
+                movie={movie}
+                onNameChange={this.handleChangeName}
+                onDurationChange={this.handleChangeDuration}
+                onYearChange={this.handleChangeYear}
+                onSubmit={this.handleOnEditComplete}
+                editMode={true}
+              />   
+    }
     return (
       <div className="App">
         <header >
           <h1>React Topic 4</h1>
         </header>
-        <NewMovie
-          movie={movie}
-          onNameChange={this.handleChangeName}
-          onDurationChange={this.handleChangeDuration}
-          onYearChange={this.handleChangeYear}
-          onSubmit={this.handleOnNewMovieSend}
-         />
+        {form}
         <ListMovies
           movies={this.state.movies}
           onDeleteMovie = {this.handleOnDeleteMovie}
