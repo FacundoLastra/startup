@@ -3,6 +3,7 @@ import './App.css';
 import Movie from '../models/Movie';
 import NewMovie from './newMovie';
 import ListMovies from './ListMovies';
+import logo from '../logo.svg';
 
 function getLastValidId(array){
   let validId = 0;
@@ -108,6 +109,7 @@ handleOnEditComplete(){
     return (
       <div className="App">
         <header >
+          <img src={logo} alt="reactLogo" className="App-logo"/>
           <h1>React Topic 4</h1>
         </header>
         {form}
