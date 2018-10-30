@@ -1,0 +1,12 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
