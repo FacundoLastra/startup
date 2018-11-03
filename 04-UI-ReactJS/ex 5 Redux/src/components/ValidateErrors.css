@@ -1,0 +1,7 @@
+.errorsTrue{
+    display: inline;
+    color: red;
+}
+.errorsFalse{
+    display: none;
+}
