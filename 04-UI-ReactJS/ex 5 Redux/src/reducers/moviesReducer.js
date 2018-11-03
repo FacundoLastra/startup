@@ -5,14 +5,14 @@ import Movie from '../models/Movie';
 
 export const moviesReducer = function (state = initialState,action) {
     switch(action.type) {
-        case "ADD_MOVIE": {
-            return { /// using Spread 
-                ...state,
-                movies:{ ...state.movies,
-                        moviesList: [...state.movies.moviesList, state.movies.newMovie],
-                        newMovie: new Movie("",0,0,getLastValidId(state.movies.moviesList) +1)
-                       }
-            }
+        case "ADD_MOVIE": { /// using Spread
+            const newState = {...state,
+                            movies:{ ...state.movies,
+                                    moviesList: [...state.movies.moviesList, state.movies.newMovie],
+                                   }
+                        }
+            newState.movies.newMovie = new Movie("",0,0,getLastValidId(newState.movies.moviesList))
+            return newState                 
         }
         case "NAME_CHANGE": {
             let movie = Object.assign({},state.movies.newMovie)
@@ -43,8 +43,7 @@ export const moviesReducer = function (state = initialState,action) {
             movie.year = action.year;
             return {
                 ...state,
-                movies: {...state.movies, moviesList: deleteElementByID(state.movies.moviesList,action.id) }
-                 
+                movies: {...state.movies, moviesList: deleteElementByID(state.movies.moviesList,action.id) }                 
             }
         }
         case "START_EDIT_MOVIE": {
