@@ -19,20 +19,20 @@ export const styles =
         thirdRow: {
             flex:1
         },
-        smallSquare: {
+        firstSquare: {
             flex: 1,
             height: 100,
             marginRight:5,          
             backgroundColor: "red"
         },
-        mediumSquare: {
+        secondSquare: {
             flex: 1,
             height: 100,
             marginRight:5,
             marginLeft:5,          
             backgroundColor: "#673ab7"
         },
-        largeSquare: {
+        thirdSquare: {
             flex: 1,
             height: 100, 
             marginLeft:5,        
