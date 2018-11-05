@@ -7,7 +7,6 @@ export const styles =
             backgroundColor: "#2196f3",
             width: 500,
             height: 500,
-            borderRadius: 5
         },
         smallSquare: {
             flex: 1,
