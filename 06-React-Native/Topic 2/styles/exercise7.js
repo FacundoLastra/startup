@@ -13,7 +13,8 @@ export const styles =
             borderColor: 'black',
             borderWidth: 2,
             margin:3,
-            marginTop:25
+            marginTop:25,
+            padding:5
         },
         row2: {
             flex:45,
