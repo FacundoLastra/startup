@@ -5,7 +5,7 @@ export const styles =
         container: {
             flex: 1,
             flexDirection: 'row',
-            backgroundColor: Platform.OS === 'ios'? "grey" : "green"
+            backgroundColor: Platform.OS === 'ios' ? "grey" : "green"
         },
         row1: {
             flex:1,
