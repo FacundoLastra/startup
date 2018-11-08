@@ -10,7 +10,7 @@ export class Exercise7 extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.row1}>
+                <View style={styles.row1} >
                     <View style={styles.articuleInformationArea}>
                         <View style={styles.titleContainer}>
                             <Text style={[styles.header, styles.title]}>{this.props.title}</Text>
@@ -23,11 +23,7 @@ export class Exercise7 extends React.Component {
                         </View>
                         <View style={styles.articuleContentContainer}>
                             <Text style={styles.articuleContent}>
-                                Nullam luctus sollicitudin leo, vitae maximus ipsum vulputate nec.
-                                Proin quam mi, luctus ac elementum a,
-                                pellentesque non est.
-                                Etiam lacinia elit nec arcu aliquam,
-                                a facilisis turpis porta. Mauris mauris ipsum
+                                {this.props.articuleContent}
                             </Text>
                         </View>
                         <View style={styles.iconsContainer}>
@@ -64,7 +60,7 @@ export class Exercise7 extends React.Component {
                         <Image
                             style={styles.smallSize}
                             resizeMode="contain"
-                            source={require('../assets/imgExemple.png')}
+                            source={require('../assets/articulePhoto.png')}
                         />
                     </View>
                 </View>

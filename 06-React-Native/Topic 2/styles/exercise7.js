@@ -11,10 +11,11 @@ export const styles =
             flexDirection: "row",
             marginTop: 20,
             borderColor: 'black',
-            borderWidth: 2,
+            borderWidth: 1,
             margin:3,
             marginTop:25,
-            padding:5
+            padding:10,         
+            
         },
         row2: {
             flex:45,
@@ -26,13 +27,15 @@ export const styles =
             flex: 2
         },
         autorContainer: {
-            flex: 1
+            flex: 1,
+            marginTop:4
         },
         articuleContentContainer: {
-            flex:3
+            flex:4
         },
         iconsContainer: {
-            flex:1,flexDirection:'row'
+            flex:1,
+            flexDirection:'row'
         },
         header:{
             fontWeight: "bold",
@@ -53,7 +56,9 @@ export const styles =
         },
         commentsContainer: {
             backgroundColor: 'grey',
-            flexDirection:'row' 
+            flexDirection:'row',
+            width:40,
+            height:40 
         },
         commentCounter: {
             color: 'white'
@@ -64,6 +69,7 @@ export const styles =
         },
         smallSize: {
             width: 100,
-            height: 130
+            height: 150,
+            marginLeft:5
         }         
     })

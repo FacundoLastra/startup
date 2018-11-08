@@ -11,7 +11,7 @@ export default class App extends React.Component {
       <Exercise7
         title= 'Lorem ipsum dolor sit amet,consectetur adipiscing elit Morbi'
         autorName = 'facundo'
-        articuleContent= 'Nullam luctus sollicitudin leo vitae maximus ipsum vulputate nec Proin quam mi luctus ac elementum a pellentesque non est Etiam lacinia elit nec arcu aliquam  a facilisis turpis porta Mauris mauris ipsum'
+        articuleContent= 'Nullam luctus sollicitudin imus ipsum sollicitudin leo vitae leo vitae maximus ipsum sollicitudin leo vitae maximus ipsum vulputate nec Proin quam mi luctus ac elementum a pellentesque non est Etiam lacinia elit nec arcu aliquam  a facilisis turpis porta Mauris mauris ipsum'
         commentsCount = '5'
       />     
     );
