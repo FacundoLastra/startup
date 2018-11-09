@@ -9,8 +9,8 @@ export class Exercise7 extends React.Component {
     }
     render() {
         return (
-            <View style={styles.container}>
-                <View style={styles.row1} >
+            
+                <View style={styles.articuleContainer} >
                     <View style={styles.articuleInformationArea}>
                         <View style={styles.titleContainer}>
                             <Text style={[styles.header, styles.title]}>{this.props.title}</Text>
@@ -60,15 +60,11 @@ export class Exercise7 extends React.Component {
                         <Image
                             style={styles.smallSize}
                             resizeMode="contain"
-                            source={require('../assets/articulePhoto.png')}
+                            source={{uri: this.props.imageUrl}}
                         />
                     </View>
                 </View>
-                <View style={styles.row2}>
-
-
-                </View>
-            </View>
+                
         )
     }
 }

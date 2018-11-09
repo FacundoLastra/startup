@@ -6,8 +6,8 @@ export const styles =
             flex: 1,
             flexDirection: 'column'
         },
-        row1: {
-            flex:55,
+        articuleContainer: {
+            flex:1,
             flexDirection: "row",
             marginTop: 20,
             borderColor: 'black',
@@ -17,8 +17,11 @@ export const styles =
             padding:10,         
             
         },
+        row1:{
+            flex:55
+        },
         row2: {
-            flex:45,
+            flex: 45
         },
         articuleInformationArea: {
             flex:70
