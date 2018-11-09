@@ -31,7 +31,7 @@ const AppStackNavigator = createStackNavigator({
   Post:{
     screen: Post,
     navigationOptions: () =>({
-      title: 'Information about a User'
+      title: 'Post and User Information '
     })
   },
   CameraExpoTest:{

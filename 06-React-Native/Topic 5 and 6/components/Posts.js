@@ -2,6 +2,10 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
 import MyListItem from './MyListItem'
 
+function searchPostInArray(array,idPost){
+  return array.find(item => item.id === idPost)
+}
+
 export default class Posts extends React.Component {
   constructor(props) {
     super(props)
@@ -32,16 +36,18 @@ export default class Posts extends React.Component {
       });
   }
 
-  handleOnPressItem(id) {
-    this.props.navigation.navigate('Post', { userId: id })
+  handleOnPressItem(idPost,userId) {
+    const postInformation = searchPostInArray(this.state.dataSource,idPost)
+    this.props.navigation.navigate('Post', { userId: userId, post: postInformation })
   }
 
   renderItem = ({ item }) => (
     <MyListItem
-      id={item.userId}
+      userId={item.userId}
       title={item.title}
       body={item.body}
       onPressItem={this.handleOnPressItem}
+      postId={item.id}
     />
   )
 

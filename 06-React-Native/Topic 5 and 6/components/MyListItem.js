@@ -8,7 +8,7 @@ export default class MyListItem extends React.PureComponent {
       }
   
   handleOnPress = () => {
-    this.props.onPressItem(this.props.id);
+    this.props.onPressItem(this.props.postId,this.props.userId);
   };
 
   render() {
